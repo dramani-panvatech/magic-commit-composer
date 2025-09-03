@@ -8,33 +8,64 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Healthcare brand colors - warm and professional */
+    --background: 210 40% 98%;
+    --foreground: 224 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary blue - PatientClick brand */
+    --primary: 207 90% 54%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 207 90% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft green for trust/health */
+    --secondary: 142 52% 96%;
+    --secondary-foreground: 142 65% 25%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 40% 95%;
+    --accent-foreground: 142 65% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --input: 220 13% 96%;
+    --ring: 207 90% 54%;
+
+    /* Healthcare specific colors */
+    --healthcare-blue: 207 90% 54%;
+    --healthcare-green: 142 65% 45%;
+    --healthcare-light-blue: 207 90% 96%;
+    --healthcare-light-green: 142 52% 96%;
+    --trust-blue: 224 71% 4%;
+    --warm-gray: 220 13% 96%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--healthcare-blue)), hsl(var(--primary-hover)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--healthcare-light-blue)), hsl(var(--healthcare-light-green)));
+    --gradient-trust: linear-gradient(180deg, hsl(var(--background)), hsl(var(--warm-gray)));
+
+    /* Shadows for trust elements */
+    --shadow-soft: 0 4px 6px -1px hsl(var(--healthcare-blue) / 0.1);
+    --shadow-card: 0 10px 25px -5px hsl(var(--trust-blue) / 0.1);
+    --shadow-trust: 0 20px 40px -12px hsl(var(--healthcare-blue) / 0.15);
+
+    /* Additional shadows for enhanced design */
+    --shadow-hover: 0 10px 40px -12px hsl(var(--healthcare-blue) / 0.2);
+    --shadow-glow: 0 0 0 3px hsl(var(--healthcare-blue) / 0.1);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -101,5 +132,128 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Scroll animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 3s ease-in-out infinite 1.5s;
+  }
+  
+  /* Marquee animation */
+  .animate-marquee {
+    animation: marquee 10s linear infinite;
+  }
+  
+  /* Hover animations */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .hover-scale {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Section reveal on scroll */
+  .reveal-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .reveal-section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
