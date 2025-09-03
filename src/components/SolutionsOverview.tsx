@@ -49,53 +49,83 @@ const solutions = [
 
 export default function SolutionsOverview() {
   return (
-    <section className="py-16 lg:py-24 bg-gradient-soft">
+    <section className="py-20 lg:py-28 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-trust-blue mb-6">
-            Comprehensive Healthcare Solutions
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent font-semibold text-sm uppercase tracking-wide">
+              Complete Platform
+            </span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Everything Your Practice
+            <span className="block bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              Needs in One Place
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Everything you need to run a modern healthcare practice,
-            all integrated seamlessly in one platform.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Streamline operations, enhance patient care, and boost revenue with our 
+            integrated healthcare technology suite designed for modern practices.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
           {solutions.map((solution, index) => (
-            <Card
+            <Link
               key={solution.title}
-              className="group relative overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-500 ease-out border-0 bg-white/80 backdrop-blur-sm animate-fade-in cursor-pointer"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              to={solution.href}
+              className="group block"
             >
-              {/* Hover background effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <Card className="h-full group relative overflow-hidden hover:shadow-xl transition-all duration-700 ease-out border border-gray-100 bg-white hover:border-primary/20 animate-fade-in"
+                style={{ animationDelay: `${index * 0.15}s` }}>
+                
+                {/* Gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                {/* Icon with enhanced styling */}
+                <CardHeader className="pb-6 relative z-10">
+                  <div className={`w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-6 ${solution.color} group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-xl`}>
+                    <solution.icon className="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300 text-center mb-4">
+                    {solution.title}
+                  </CardTitle>
+                </CardHeader>
 
-              <CardHeader className="text-center pb-4 relative z-10">
-                <div className={`w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 ${solution.color} group-hover:${solution.hoverColor} group-hover:scale-110 transition-all duration-300`}>
-                  <solution.icon className="w-8 h-8 group-hover:rotate-12 transition-transform duration-300" />
-                </div>
-                <CardTitle className="text-xl text-trust-blue group-hover:text-primary transition-colors duration-300">
-                  {solution.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center relative z-10">
-                <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                  {solution.description}
-                </p>
-                <Link
-                  to={solution.href}
-                  className="inline-flex items-center text-primary font-medium hover:text-primary-hover group-hover:translate-x-2 transition-all duration-300"
-                >
-                  Learn More
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:rotate-45 transition-transform duration-300" />
-                </Link>
-              </CardContent>
+                <CardContent className="relative z-10 pt-0">
+                  <p className="text-gray-600 leading-relaxed text-center mb-8 min-h-[4rem] flex items-center">
+                    {solution.description}
+                  </p>
+                  
+                  {/* Enhanced CTA */}
+                  <div className="text-center">
+                    <div className="inline-flex items-center text-primary font-semibold text-lg group-hover:text-primary-hover group-hover:translate-x-2 transition-all duration-300">
+                      Explore Solution
+                      <ArrowRight className="w-5 h-5 ml-3 group-hover:rotate-45 transition-transform duration-300" />
+                    </div>
+                  </div>
+                </CardContent>
 
-              {/* Subtle border animation on hover */}
-              <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-primary/20 transition-colors duration-500"></div>
-            </Card>
+                {/* Animated border */}
+                <div className="absolute inset-0 rounded-xl border-2 border-transparent bg-gradient-to-br from-primary/20 via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                
+                {/* Subtle glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-primary/10 to-blue-600/10 rounded-xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-20"></div>
+              </Card>
+            </Link>
           ))}
+        </div>
+
+        {/* Bottom CTA section */}
+        <div className="mt-20 text-center">
+          <div className="bg-gradient-to-r from-primary/5 to-blue-600/5 rounded-3xl p-8 lg:p-12 border border-primary/10">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              Ready to Transform Your Practice?
+            </h3>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Join thousands of healthcare providers who trust PatientClick to streamline their operations and improve patient outcomes.
+            </p>
+          </div>
         </div>
       </div>
     </section>
