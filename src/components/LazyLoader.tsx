@@ -30,6 +30,7 @@ export const LazyRevenueCycle = lazy(() => import('../pages/services/RevenueCycl
 // Other pages
 export const LazyHIPAACompliant = lazy(() => import('../pages/HIPAACompliant'));
 export const LazyHITECHCertified = lazy(() => import('../pages/HITECHCertified'));
+export const LazyCostDisclosure = lazy(() => import('../pages/CostDisclosure'));
 export const LazySupport = lazy(() => import('../pages/Support'));
 export const LazyFAQ = lazy(() => import('../pages/FAQ'));
 export const LazyTerms = lazy(() => import('../pages/Terms'));

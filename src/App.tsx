@@ -31,6 +31,7 @@ import {
   LazyRevenueCycle,
   LazyHIPAACompliant,
   LazyHITECHCertified,
+  LazyCostDisclosure,
   LazySupport,
   LazyFAQ,
   LazyTerms,
@@ -70,7 +71,7 @@ const App = () => (
           <Route path="/news/blog" element={<LazyWrapper><LazyBlog /></LazyWrapper>} />
           <Route path="/news/articles" element={<LazyWrapper><LazyArticles /></LazyWrapper>} />
           <Route path="/news/article/:id" element={<LazyWrapper><LazyArticleDetail /></LazyWrapper>} />
-          <Route path="/cost-disclosure" element={<LazyWrapper><LazyContact /></LazyWrapper>} />
+          <Route path="/cost-disclosure" element={<LazyWrapper><LazyCostDisclosure /></LazyWrapper>} />
           <Route path="/contact" element={<LazyWrapper><LazyContact /></LazyWrapper>} />
           <Route path="/contact/*" element={<LazyWrapper><LazyContact /></LazyWrapper>} />
           <Route path="/support" element={<LazyWrapper><LazySupport /></LazyWrapper>} />
