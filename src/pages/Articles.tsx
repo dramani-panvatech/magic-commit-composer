@@ -379,31 +379,27 @@ export default function Articles() {
                     .filter(article => article.featured)
                     .map((article) => (
                       <Card key={article.id} className="group hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 bg-white/80 backdrop-blur-sm">
-                        <div className="relative">
-                          <div className="aspect-[16/10] overflow-hidden">
-                            <img
-                              src={article.image}
-                              alt={article.title}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                            />
-                          </div>
-                          <div className="absolute top-4 left-4 flex items-center gap-2">
-                            <Badge variant="secondary" className="bg-white/90 backdrop-blur-sm">
-                              {article.category}
-                            </Badge>
-                            {article.trending && (
-                              <Badge variant="destructive" className="flex items-center gap-1 bg-red-500/90 backdrop-blur-sm">
-                                <TrendingUp className="w-3 h-3" />
-                                Trending
-                              </Badge>
-                            )}
-                          </div>
-                          <div className="absolute top-4 right-4">
-                            <Button variant="ghost" size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white">
-                              <Bookmark className="w-4 h-4" />
-                            </Button>
-                          </div>
-                        </div>
+                         <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 p-6 border-b">
+                           <div className="flex items-center justify-between mb-4">
+                             <div className="flex items-center gap-2">
+                               <Badge variant="secondary">
+                                 {article.category}
+                               </Badge>
+                               {article.trending && (
+                                 <Badge variant="destructive" className="flex items-center gap-1">
+                                   <TrendingUp className="w-3 h-3" />
+                                   Trending
+                                 </Badge>
+                               )}
+                             </div>
+                             <Button variant="ghost" size="sm">
+                               <Bookmark className="w-4 h-4" />
+                             </Button>
+                           </div>
+                           <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                             <Newspaper className="w-6 h-6 text-white" />
+                           </div>
+                         </div>
                         
                         <CardHeader className="pb-4">
                           <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
@@ -423,17 +419,15 @@ export default function Articles() {
                             {article.excerpt}
                           </CardDescription>
                           
-                          <div className="flex items-center gap-3 mb-4">
-                            <img
-                              src={article.authorAvatar}
-                              alt={article.author}
-                              className="w-10 h-10 rounded-full ring-2 ring-blue-100"
-                            />
-                            <div className="flex-1">
-                              <p className="font-medium text-sm">{article.author}</p>
-                              <p className="text-xs text-muted-foreground">{article.authorTitle}</p>
-                            </div>
-                          </div>
+                           <div className="flex items-center gap-3 mb-4">
+                             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                               <User className="w-5 h-5 text-white" />
+                             </div>
+                             <div className="flex-1">
+                               <p className="font-medium text-sm">{article.author}</p>
+                               <p className="text-xs text-muted-foreground">{article.authorTitle}</p>
+                             </div>
+                           </div>
                           
                           <div className="flex flex-wrap gap-1 mb-4">
                             {article.tags.slice(0, 3).map((tag) => (
@@ -478,17 +472,13 @@ export default function Articles() {
                   <Card key={article.id} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm overflow-hidden">
                     <CardContent className="p-0">
                       <div className="flex flex-col lg:flex-row">
-                        <div className="lg:w-2/5">
-                          <div className="aspect-[4/3] overflow-hidden">
-                            <img
-                              src={article.image}
-                              alt={article.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                        <div className="lg:w-32 lg:flex-shrink-0 bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-6">
+                          <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center">
+                            <Newspaper className="w-8 h-8 text-white" />
                           </div>
                         </div>
                         
-                        <div className="lg:w-3/5 p-6">
+                        <div className="lg:w-5/6 p-6">
                           <div className="flex items-center gap-2 mb-3">
                             <Badge variant="outline" className="bg-blue-50">
                               {article.category}
@@ -518,11 +508,9 @@ export default function Articles() {
                           </CardDescription>
                           
                           <div className="flex items-center gap-3 mb-4">
-                            <img
-                              src={article.authorAvatar}
-                              alt={article.author}
-                              className="w-12 h-12 rounded-full ring-2 ring-blue-100"
-                            />
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                              <User className="w-6 h-6 text-white" />
+                            </div>
                             <div className="flex-1">
                               <p className="font-medium">{article.author}</p>
                               <p className="text-sm text-muted-foreground">{article.authorTitle}</p>

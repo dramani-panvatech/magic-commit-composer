@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, Newspaper } from "lucide-react";
 import DemoModal from "@/components/DemoModal";
 
 // Mock blog data
@@ -139,20 +139,16 @@ export default function Blog() {
           {filteredPosts.map((post) => (
             <Card key={post.id} className="overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
               <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row">
-                  {/* Image */}
-                  <div className="md:w-1/3">
-                    <div className="aspect-video md:aspect-square overflow-hidden">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="md:w-2/3 p-6">
+                 <div className="flex flex-col md:flex-row">
+                   {/* Icon Section */}
+                   <div className="md:w-32 md:flex-shrink-0 bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-6">
+                     <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center">
+                       <Newspaper className="w-8 h-8 text-white" />
+                     </div>
+                   </div>
+                   
+                   {/* Content */}
+                   <div className="flex-1 p-6">
                     <h2 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
                       {post.title}
                     </h2>
