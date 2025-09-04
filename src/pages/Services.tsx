@@ -184,27 +184,114 @@ export default function Services() {
       
       <main className="pt-8">
         {/* Hero Section */}
-        <section className="py-12 sm:py-16 lg:py-24 bg-gradient-hero">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Badge variant="secondary" className="mb-4 sm:mb-6" data-aos="fade-down">
-              <Users className="w-4 h-4 mr-2" />
-              Professional Services
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-trust-blue mb-4 sm:mb-6" data-aos="fade-up">
-              Healthcare Services That Drive Results
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8" data-aos="fade-up" data-aos-delay="200">
-              Our comprehensive suite of healthcare services is designed to streamline your practice, 
-              improve patient care, and boost your bottom line.
-            </p>
-            <Button 
-              onClick={() => setIsDemoModalOpen(true)}
-              variant="cta" 
-              size="xl"
-            >
-              Get Started Today
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+        <section className="py-12 sm:py-16 lg:py-24 bg-gradient-hero relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12 lg:mb-16">
+              <Badge variant="secondary" className="mb-4 sm:mb-6" data-aos="fade-down">
+                <Users className="w-4 h-4 mr-2" />
+                Comprehensive Healthcare Solutions
+              </Badge>
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-trust-blue mb-6" data-aos="fade-up">
+                Transform Your Healthcare Practice with 
+                <span className="block text-primary mt-2">End-to-End Solutions</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="200">
+                From patient acquisition to long-term care management, our comprehensive suite of healthcare 
+                services creates a seamless ecosystem that drives practice growth, improves patient outcomes, 
+                and maximizes revenue potential.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" data-aos="fade-up" data-aos-delay="400">
+                <Button 
+                  onClick={() => setIsDemoModalOpen(true)}
+                  variant="cta" 
+                  size="xl"
+                  className="min-w-[200px]"
+                >
+                  Schedule Demo
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <Button 
+                  onClick={() => setIsDemoModalOpen(true)}
+                  variant="outline"
+                  size="xl"
+                  className="min-w-[200px] border-primary text-primary hover:bg-primary hover:text-white"
+                >
+                  View Solutions
+                </Button>
+              </div>
+            </div>
+
+            {/* Healthcare Ecosystem Flow */}
+            <div className="relative" data-aos="fade-up" data-aos-delay="600">
+              <h3 className="text-2xl sm:text-3xl font-bold text-trust-blue text-center mb-8">
+                Your Complete Healthcare Ecosystem
+              </h3>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/20">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-2">
+                  {[
+                    { number: "1", title: "New Patients", desc: "Streamlined patient acquisition and onboarding", icon: Users },
+                    { number: "2", title: "Smart Matching", desc: "AI-powered provider and service matching", icon: Zap },
+                    { number: "3", title: "Treatment Insights", desc: "Data-driven care recommendations", icon: FileText },
+                    { number: "4", title: "Patient Journeys", desc: "Personalized care pathways", icon: Calendar },
+                    { number: "5", title: "Treatment Plans", desc: "Customized therapeutic protocols", icon: Settings },
+                    { number: "6", title: "Long-term Care", desc: "Ongoing support and adherence", icon: Shield },
+                    { number: "7", title: "Patient Success", desc: "Outcomes tracking and optimization", icon: TrendingUp }
+                  ].map((step, index) => (
+                    <div key={step.number} className="relative">
+                      <div className="flex flex-col items-center text-center p-4">
+                        <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mb-3">
+                          {step.number}
+                        </div>
+                        <step.icon className="w-8 h-8 text-primary mb-2" />
+                        <h4 className="font-semibold text-trust-blue text-sm mb-2">{step.title}</h4>
+                        <p className="text-xs text-muted-foreground leading-tight">{step.desc}</p>
+                      </div>
+                      
+                      {/* Connection Line */}
+                      {index < 6 && (
+                        <div className="hidden lg:block absolute top-6 -right-1 w-4 h-0.5 bg-primary/50"></div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-8 text-center">
+                  <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                    Our integrated platform ensures seamless data flow and coordination across every stage 
+                    of the patient journey, from initial contact to long-term success tracking.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Benefits Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16" data-aos="fade-up" data-aos-delay="800">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <div className="w-12 h-12 bg-healthcare-green/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-6 h-6 text-healthcare-green" />
+                </div>
+                <h4 className="font-semibold text-trust-blue mb-2">95% Client Satisfaction</h4>
+                <p className="text-sm text-muted-foreground">Proven track record of successful implementations</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="font-semibold text-trust-blue mb-2">300% Average ROI</h4>
+                <p className="text-sm text-muted-foreground">Significant return on investment within 6 months</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-6 h-6 text-secondary" />
+                </div>
+                <h4 className="font-semibold text-trust-blue mb-2">24/7 Support</h4>
+                <p className="text-sm text-muted-foreground">Round-the-clock technical and operational support</p>
+              </div>
+            </div>
           </div>
         </section>
 
