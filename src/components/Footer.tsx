@@ -191,7 +191,80 @@ export default function Footer({ onDemoClick }: FooterProps) {
           </div>
         </div>
 
-        
+        {/* Mobile App Downloads */}
+        <div className="border-t border-border pt-8 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* For Patients */}
+            <div className="text-center md:text-left">
+              <h4 className="font-semibold text-lg text-foreground mb-4">For Patients</h4>
+              <div className="space-y-3">
+                <a
+                  href="https://apps.apple.com/us/app/patientconnect-by-patientclick/id859063216"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://www.patientclick.com/wp-content/uploads/2022/12/Google-2.png"
+                    alt="Download PatientConnect on App Store"
+                    width={150}
+                    height={50}
+                    className="h-12 w-auto"
+                  />
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.PatientClick.PatientConnect"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://www.patientclick.com/wp-content/uploads/2022/12/Google-1.png"
+                    alt="Download PatientConnect on Google Play"
+                    width={150}
+                    height={50}
+                    className="h-12 w-auto"
+                  />
+                </a>
+              </div>
+            </div>
+
+            {/* For Provider */}
+            <div className="text-center md:text-left">
+              <h4 className="font-semibold text-lg text-foreground mb-4">For Provider</h4>
+              <div className="space-y-3">
+                <a
+                  href="https://itunes.apple.com/us/app/mdconnect-by-patientclick/id1156334494?mt=8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://www.patientclick.com/wp-content/uploads/2022/12/Google-2.png"
+                    alt="Download MDConnect on App Store"
+                    width={150}
+                    height={50}
+                    className="h-12 w-auto"
+                  />
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.PatientClick.mdconnect"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://www.patientclick.com/wp-content/uploads/2022/12/Google-1.png"
+                    alt="Download MDConnect on Google Play"
+                    width={150}
+                    height={50}
+                    className="h-12 w-auto"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       {/* Bottom Footer */}
       <div className="border-t border-border bg-muted/20">
